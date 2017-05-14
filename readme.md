@@ -1,6 +1,6 @@
 ### spring boot
-1. Quick Start
-    1. pom文件
+#### Quick Start
+1. pom文件
 ```
     <parent>
         <groupId>org.springframework.boot</groupId>
