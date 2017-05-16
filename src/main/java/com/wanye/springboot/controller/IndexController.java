@@ -17,7 +17,6 @@ public class IndexController {
     private IndexService indexService;
 
     @RequestMapping("/index")
-    @ResponseBody
     public IndexVo index(){
         IndexVo indexVo = indexService.loadIndex();
         return indexVo;
