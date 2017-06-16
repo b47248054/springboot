@@ -10,9 +10,10 @@ import java.util.Map;
  * Created by wanye on 2017/5/20.
  */
 @RestController // @Controller + @ResponseBody
+@RequestMapping("**.do")
 public class HelloController {
 
-    @RequestMapping("/hello")
+    @RequestMapping(name = "hello")
     public Map<String, String> hello(){
         Map<String, String> hello = new HashMap<String, String>();
         hello.put("data", "hello 小红");
