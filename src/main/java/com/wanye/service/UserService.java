@@ -1,6 +1,7 @@
 package com.wanye.service;
 
 import com.wanye.entity.User;
+import com.wanye.entity.UserInfo;
 import com.wanye.mapper.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -28,19 +30,27 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+    public UserInfo getUserInfo() {
+        return userMapper.getUserInfo();
+    }
     public List<User> getUserList() {
-        return jdbcTemplate.query("select * from user", new RowMapper<User>() {
+//        return jdbcTemplate.query("select * from user", new RowMapper<User>() {
+//
+//            @Override
+//            public User mapRow(ResultSet resultSet, int i) throws SQLException {
+//                User user = new User();
+//                user.setId(resultSet.getInt("id"));
+//                user.setName(resultSet.getString("name"));
+//                user.setAge(resultSet.getInt("age"));
+//                user.setCreate(resultSet.getInt("create"));
+//                return user;
+//            }
+//        });
+        return getUserList0();
+    }
 
-            @Override
-            public User mapRow(ResultSet resultSet, int i) throws SQLException {
-                User user = new User();
-                user.setId(resultSet.getInt("id"));
-                user.setName(resultSet.getString("name"));
-                user.setAge(resultSet.getInt("age"));
-                user.setCreate(resultSet.getInt("create"));
-                return user;
-            }
-        });
+    private List<User> getUserList0() {
+        return userMapper.getUserList();
     }
 
     public User getUserById(int id) {
