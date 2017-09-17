@@ -17,8 +17,6 @@ import java.util.Map;
 @RestController // @Controller + @ResponseBody
 public class HelloController {
 
-    @Autowired
-    private UserService userService;
 
     @RequestMapping("/hello")
     public Map<String, String> hello(){
@@ -28,20 +26,6 @@ public class HelloController {
         return hello;
     }
 
-    @RequestMapping("/userlist")
-    public List<User> getUserList() {
-        return userService.getUserList();
-    }
 
-    @RequestMapping("/user/{id}")
-    public User getUser(@PathVariable int id) {
-        return userService.getUserById(id);
-    }
-
-    @RequestMapping("/user/cp/{id}/{name}")
-    public List<User> cpUser(@PathVariable("id") int id, @PathVariable("name") String name) {
-        userService.copyUser(id, name);
-        return getUserList();
-    }
 
 }

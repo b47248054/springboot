@@ -6,4 +6,8 @@
     <select id="getUserById" resultType="com.wanye.entity.User">
         SELECT * FROM USER WHERE id = #{id}
     </select>
+
+    <insert id="saveUser" parameterType="com.wanye.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT into user(name,age,`create`) VALUES (#{name},#{age},#{create})
+    </insert>
 </mapper>

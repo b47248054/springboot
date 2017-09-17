@@ -56,4 +56,14 @@ public class UserService {
         logger.info("更新成功：i=" + i + " name=" + name + " id=" + id);
     }
 
+    public User saveUser(User user) {
+        logger.info("保存前：{}",user);
+        int res = userMapper.saveUser(user);
+        logger.info("保存后：{}",user);
+        if (res > 0) {
+            return user;
+        }
+        return null;
+    }
+
 }
