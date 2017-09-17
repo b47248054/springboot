@@ -1,7 +1,6 @@
 package com.wanye.controller;
 
 import com.wanye.entity.User;
-import com.wanye.entity.UserInfo;
 import com.wanye.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,13 +28,8 @@ public class HelloController {
         return hello;
     }
 
-    @RequestMapping("/userinfo")
-    public UserInfo getUserInfo() {
-        return userService.getUserInfo();
-    }
     @RequestMapping("/userlist")
     public List<User> getUserList() {
-
         return userService.getUserList();
     }
 
