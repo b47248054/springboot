@@ -18,7 +18,6 @@ public class User {
     private String name;
     @Min(value = 18,message = "年龄需要大于18岁")
     @Max(value = 28,message = "年龄不能大于28岁")
-    @Range(min = 18,max = 28,"我只喜欢年轻的")
     private int age;
     private int create;
 
